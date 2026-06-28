@@ -214,176 +214,118 @@ const counterObserver = new IntersectionObserver((entries) => {
 });
 
 counters.forEach(counter => counterObserver.observe(counter));
+
+
 /*==========================
-FAQ ACCORDION
+FAQ
 ==========================*/
 
-const faqs = document.querySelectorAll(".faq-item");
+window.addEventListener("DOMContentLoaded", () => {
 
-faqs.forEach(item => {
+    const faqItems = document.querySelectorAll(".faq-item");
 
-    item.querySelector(".faq-question").addEventListener("click", () => {
+    console.log("FAQs found:", faqItems.length);
 
-        faqs.forEach(faq => {
+    faqItems.forEach(item => {
 
-            if(faq !== item){
+        item.querySelector(".faq-question").addEventListener("click", () => {
 
-                faq.classList.remove("active");
+            console.log("Clicked");
 
-            }
+            faqItems.forEach(faq => {
+
+                if (faq !== item) {
+
+                    faq.classList.remove("active");
+
+                }
+
+            });
+
+            item.classList.toggle("active");
 
         });
-
-        item.classList.toggle("active");
 
     });
 
 });
-/*==========================
-BACK TO TOP
-==========================*/
 
-const topBtn = document.getElementById("topBtn");
-
-if(topBtn){
-
-window.addEventListener("scroll",()=>{
-
-if(window.scrollY>500){
-
-topBtn.style.display="block";
-
-}else{
-
-topBtn.style.display="none";
-
-}
-
-});
-
-topBtn.onclick=()=>{
-
-window.scrollTo({
-
-top:0,
-behavior:"smooth"
-
-});
-
-};
-
-}
-/*==========================
-PRELOADER
-==========================*/
-
-window.addEventListener("load", () => {
-
-    const preloader = document.getElementById("preloader");
-
-    setTimeout(() => {
-
-        preloader.style.opacity = "0";
-
-        setTimeout(() => {
-
-            preloader.style.display = "none";
-
-        }, 1000);
-
-    }, 2200);
-
-});
 /*==========================
 PARTICLES
 ==========================*/
 
-particlesJS("particles-js",{
+if (typeof particlesJS !== "undefined") {
 
-particles:{
+    particlesJS("particles-js", {
 
-number:{
-value:70,
-density:{
-enable:true,
-value_area:900
-}
-},
+        particles: {
 
-color:{
-value:"#2563eb"
-},
+            number: {
+                value: 70,
+                density: {
+                    enable: true,
+                    value_area: 900
+                }
+            },
 
-shape:{
-type:"circle"
-},
+            color: {
+                value: "#2563eb"
+            },
 
-opacity:{
-value:0.4
-},
+            shape: {
+                type: "circle"
+            },
 
-size:{
-value:3,
-random:true
-},
+            opacity: {
+                value: 0.4
+            },
 
-line_linked:{
-enable:true,
-distance:160,
-color:"#2563eb",
-opacity:0.25,
-width:1
-},
+            size: {
+                value: 3,
+                random: true
+            },
 
-move:{
-enable:true,
-speed:2,
-direction:"none",
-random:false,
-straight:false,
-out_mode:"bounce"
-}
+            line_linked: {
+                enable: true,
+                distance: 160,
+                color: "#2563eb",
+                opacity: 0.25,
+                width: 1
+            },
 
-},
+            move: {
+                enable: true,
+                speed: 2,
+                out_mode: "bounce"
+            }
 
-interactivity:{
+        },
 
-detect_on:"canvas",
+        interactivity: {
 
-events:{
+            detect_on: "canvas",
 
-onhover:{
-enable:true,
-mode:"grab"
-},
+            events: {
 
-onclick:{
-enable:true,
-mode:"push"
-}
+                onhover: {
+                    enable: true,
+                    mode: "grab"
+                },
 
-},
+                onclick: {
+                    enable: true,
+                    mode: "push"
+                }
 
-modes:{
+            }
 
-grab:{
-distance:180,
-line_linked:{
-opacity:0.8
-}
-},
+        },
 
-push:{
-particles_nb:4
-}
+        retina_detect: true
+
+    });
 
 }
-
-},
-
-retina_detect:true
-
-});
 /*==========================
 MOBILE MENU
 ==========================*/
@@ -419,3 +361,31 @@ document.body.style.overflow="auto";
 });
 
 }
+/*==========================
+PRELOADER
+==========================*/
+
+/*==========================
+PRELOADER
+==========================*/
+
+window.addEventListener("load", () => {
+
+    const preloader = document.getElementById("preloader");
+
+    if (!preloader) return;
+
+    // Wait for the loading bar animation to finish
+    setTimeout(() => {
+
+        preloader.style.opacity = "0";
+
+        setTimeout(() => {
+
+            preloader.style.display = "none";
+
+        }, 800);
+
+    }, 2200);
+
+});
