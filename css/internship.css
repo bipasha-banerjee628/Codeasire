@@ -1739,57 +1739,48 @@ ELIGIBILITY
 
 }
 
-/*====================================================
+/*=========================
 FAQ
-====================================================*/
+=========================*/
 
 .faq-container{
-
     max-width:900px;
-
-    margin:auto;
-
+    margin:50px auto 0;
 }
 
 .faq-item{
-
     background:rgba(255,255,255,.05);
-
     border:1px solid rgba(255,255,255,.08);
-
     border-radius:18px;
-
     margin-bottom:18px;
-
     overflow:hidden;
+    transition:.3s;
+}
 
+.faq-item:hover{
+    border-color:#10c8ff;
 }
 
 .faq-question{
 
-    padding:22px 28px;
-
     display:flex;
-
     justify-content:space-between;
-
     align-items:center;
+
+    padding:22px 28px;
 
     cursor:pointer;
 
 }
 
 .faq-question h3{
-
     font-size:18px;
-
 }
 
 .faq-question i{
 
     color:#10c8ff;
-
-    transition:.35s;
+    transition:.3s;
 
 }
 
@@ -1797,17 +1788,17 @@ FAQ
 
     max-height:0;
 
-    overflow:hidden;
+    transition:max-height .5s ease;
 
-    transition:.4s ease;
+    overflow:hidden;
 
 }
 
 .faq-answer p{
 
-    padding:0 28px 22px;
+    padding:20px 28px;
 
-    color:#c9d5e8;
+    color:#cfd8e8;
 
     line-height:1.8;
 
@@ -1815,11 +1806,11 @@ FAQ
 
 .faq-item.active .faq-answer{
 
-    max-height:220px;
+    max-height:500px;
 
 }
 
-.faq-item.active i{
+.faq-item.active .faq-question i{
 
     transform:rotate(45deg);
 

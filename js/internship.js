@@ -57,29 +57,29 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
 });
 
 
-// ==========================
-// FAQ
-// ==========================
+document.addEventListener("DOMContentLoaded", () => {
 
-const faqs=document.querySelectorAll(".faq-item");
+    const faqs = document.querySelectorAll(".faq-item");
 
-faqs.forEach(item=>{
+    faqs.forEach(item => {
 
-    const question=item.querySelector(".faq-question");
+        const question = item.querySelector(".faq-question");
 
-    question.addEventListener("click",()=>{
+        question.addEventListener("click", () => {
 
-        faqs.forEach(faq=>{
+            // Close all FAQs
+            faqs.forEach(faq => {
 
-            if(faq!==item){
+                if (faq !== item) {
+                    faq.classList.remove("active");
+                }
 
-                faq.classList.remove("active");
+            });
 
-            }
+            // Toggle current FAQ
+            item.classList.toggle("active");
 
         });
-
-        item.classList.toggle("active");
 
     });
 
